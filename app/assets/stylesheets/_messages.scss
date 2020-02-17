@@ -44,13 +44,24 @@
     color: #ffffff;
     padding: 20px 20px 40px 20px;
 
-    &__name {
-      font-size: 15px;
-      padding-bottom: 5px;
-    }
+    &__link {
+      .group {
+        text-decoration: none;
+      }
 
-    &__message {
-      font-size: 11px;
+      &__name {
+        color: #ffffff;
+        font-size: 15px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        text-decoration: none;
+      }
+  
+      &__message {
+        color: #ffffff;
+        font-size: 11px;
+        padding-bottom: 40px;
+      }
     }
   }
 }
