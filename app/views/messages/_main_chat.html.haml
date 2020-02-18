@@ -6,7 +6,7 @@
       .chat-main__group-info__left-contents__members
         Member: masa
     .chat-main__group-info__edit
-      = link_to "#", class: "edit" do
+      = ink_to "#", class: "edit" do
         Edit
   .chat-main__message-list
     .chat-main__message-list__all
@@ -25,10 +25,11 @@
       .chat-main__message-list__all__messages
         今日は夜から雨
   .chat-main__message-form
-    %input.chat-main__message-form__text-box
-    .chat-main__message-form__text-box__input
-      %label.chat-main__message-form__text-box__icon
-        = icon("far", "image")
-        %input.chat-main__message-form__text-box__icon__file{type: "file"}
-    %input.chat-main__message-form__btn{type: "submit", value: "send"}
+    = form_for [@group. @message] do |f|
+      = f.text_field :content, class: ".chat-main__message-form__text-box", placeholder: "type a message"
+      .chat-main__message-form__text-box__input
+        = f.label :image,class:".chat-main__message-form__text-box__icon" do
+          = icon("far", "image", class: "icon")
+          = f.file_fiels :image, class: ".chat-main__message-form__text-box__icon__file"
+      = f.submit "Send", class: ".chat-main__message-form__btn"
   
