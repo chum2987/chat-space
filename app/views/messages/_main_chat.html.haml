@@ -2,11 +2,13 @@
   .chat-main__group-info
     .chat-main__group-info__left-contents
       .chat-main__group-info__left-contents__name
-        test
+      = @group.name
       .chat-main__group-info__left-contents__members
-        Member: masa
+      - @group.group_users.each do |group_user|
+        = group_user.user.name
+
     .chat-main__group-info__edit
-      = link_to "#", class: "edit" do
+      = link_to edit_group_path(@group), class: "edit" do
         Edit
 
   .chat-main__message-list
@@ -14,12 +16,10 @@
 
   .chat-main__message-form
     = form_for [@group, @message] do |f|
-      .chat-main__message-form__input
-        = f.text_field :content, class: ".chat-main__message-form__input__text-box", placeholder: "type a message"
-        .chat-main__message-form__input__box
-          = f.label :image,class:".chat-main__message-form__input__box__icon" do
-            = icon("far", "image", class: "icon")
-            = f.file_field :image, class: ".chat-main__message-form__input__box__icon__file"
-        = f.submit "Send", class: ".chat-main__message-form__btn"
-
-    
+      = f.text_field :content, class: ".chat-main__message-form__input" , placeholder: 'type a message'
+      .chat-main__message-form__picture-icon
+        = f.label :image, class: ".chat-main__message-form__picture-icon" do
+          = icon("fas", "image", class: "icon")
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: ".chat-main__message-form__send"
+       
