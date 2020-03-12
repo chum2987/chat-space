@@ -17,14 +17,16 @@ $(function() {
                </div>
                `
     $("#user-search-result").append(html);
+
   }
 
   function addDelete(name, id) {
     var html = `
-                <div class="chat-group-user clearfix" id="${id}">     
+                <div class="chat-group-user clearfix" id="${id}">
                   <p class="chat-group-user__name">${name}</p>
                   <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
-                </div>`;
+                </div>
+                `;
     $(".js-add-user").append(html);
   }
 
