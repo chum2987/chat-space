@@ -2,7 +2,7 @@
   .chat-main__group-info
     .chat-main__group-info__left-contents
       .chat-main__group-info__left-contents__name
-      = @group.name
+        = @group.name
       .chat-main__group-info__left-contents__members
       - @group.group_users.each do |group_user|
         = group_user.user.name
