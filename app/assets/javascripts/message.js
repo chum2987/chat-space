@@ -63,34 +63,7 @@ $(function() {
     });
     return false;
   });
-
-  
-  // $(function() {
-    
-    // function buildHTML(message){
-
-    //   let image = ( message.image ) ? `<img class="chat-main__message-list__all__messages__image src=${message.image}>`:"";
-      
-    //   let html =
-    //   `<div class="chat-main__message-list__all" data-message-id="${message.id}">
-    //     <div class="chat-main__message-list__all__title">
-    //       <div class="chat-main__message-list__all__title__name">
-    //       ${message.user_name}
-    //       </div>
-    //       <div class="chat-main__message-list__all__title__date">
-    //       ${message.date}
-    //       </div>
-    //     </div>
-    //     <div class="chat-main__message-list__all__messages">
-    //       <p class="chat-main__message-list__all__messages__content">
-    //       ${message.content}
-    //       </p>
-    //       ${image}
-    //     </div>
-    //   </div>`
-    //   return html;
-    // }
-    
+ 
   var reloadMessages = function() {
   
     var last_message_id = $(".chat-main__message-list__all:last").data("message-id");
@@ -115,7 +88,6 @@ $(function() {
       alert("自動更新エラー");
     });
   };
-  // });
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
   }
