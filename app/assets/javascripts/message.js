@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(message){
     if (message.image) {
       var html =
-        `<div class="chat-main__message-list__all">
+        `<div class="chat-main__message-list__all" data-message-id=${message.id}>
           <div class="chat-main__message-list__all__title">
             <div class="chat-main__message-list__all__title__name">
               ${message.user_name}
@@ -21,7 +21,7 @@ $(function() {
       return html;
     } else {
       var html =
-        `<div class="chat-main__message-list__all">
+        `<div class="chat-main__message-list__all" data-message-id=${message.id}>
           <div class="chat-main__message-list__all__title">
             <div class="chat-main__message-list__all__title__name">
               ${message.user_name}
@@ -63,8 +63,6 @@ $(function() {
     });
     return false;
   });
-
-  $(document).on('turbolinks:load', function(){
  
     var reloadMessages = function() {
     
@@ -90,8 +88,7 @@ $(function() {
         alert("自動更新エラー");
       });
     };
-  });
-  
+
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
   }
